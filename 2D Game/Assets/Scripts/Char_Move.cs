@@ -7,6 +7,7 @@ public class Char_Move : MonoBehaviour
     // Player Movement Variables
     public int MoveSpeed;
     public float JumpHeight;
+    public int Sprint;
 
     // Player Grounded Variables
     public Transform GroundCheck;
@@ -36,6 +37,10 @@ public class Char_Move : MonoBehaviour
         //This code makes the character move side to side using A+D
         if (Input.GetKey(KeyCode.D)) {
             GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                MoveSpeed = MoveSpeed * (3/2);
+            }
         }
         if(Input.GetKey(KeyCode.A)) {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);

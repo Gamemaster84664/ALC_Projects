@@ -124,7 +124,7 @@ GameObject:
   m_Layer: 0
   m_Name: GroundCheck
   m_TagString: Untagged
-  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -139,7 +139,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 1191072275}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -207,11 +207,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0.0015110811, w: 0.99999887}
+  m_LocalPosition: {x: 0, y: 0, z: -10.446989}
+  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1191072275}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1191072271
@@ -252,7 +252,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1191072273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -333,9 +333,10 @@ Transform:
   m_LocalPosition: {x: -2.92, y: -1.44, z: 0.446989}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
+  - {fileID: 519420032}
   - {fileID: 240026974}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.17300001}
 --- !u!114 &1191072276
 MonoBehaviour:
@@ -348,8 +349,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad1e118600e62473c91bbb169c9aa04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
+  MoveSpeed: 5
   JumpHeight: 7.5
+  Sprint: 0
   GroundCheck: {fileID: 240026974}
   GroundCheckRadius: 0.5
   WhatIsGround:
@@ -395,7 +397,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.16}
+  m_Size: {x: 0.145, y: 0.16}
   m_EdgeRadius: 0
 --- !u!212 &1698258980
 SpriteRenderer:
@@ -449,9 +451,9 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1698258978}
   m_LocalRotation: {x: -0, y: -0, z: -0.00048838387, w: 0.9999999}
-  m_LocalPosition: {x: -0.016, y: -4.329, z: 0.446989}
-  m_LocalScale: {x: 120.55869, y: -1.2370975, z: 1}
+  m_LocalPosition: {x: -5.116, y: -4.074, z: 0.446989}
+  m_LocalScale: {x: 158.46675, y: 1.8878301, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -0.056}
