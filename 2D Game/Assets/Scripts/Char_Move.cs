@@ -7,13 +7,16 @@ public class Char_Move : MonoBehaviour
     // Player Movement Variables
     public int MoveSpeed;
     public float JumpHeight;
-    public int Sprint;
+    private bool doubleJump;
 
     // Player Grounded Variables
     public Transform GroundCheck;
     public float GroundCheckRadius;
     public LayerMask WhatIsGround;
     private bool grounded;
+
+    // Non-Stick Player
+    private float moveVelocity;
 
     // Use this for initialization
     void Start()
@@ -28,23 +31,38 @@ public class Char_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //This code makes the character jump
+        // This code makes the character jump
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             Jump();
         }
 
-        //This code makes the character move side to side using A+D
+        // Double jump code
+        if (grounded)
+        {
+            doubleJump = false;
+        }
+
+        if (Input.GetKeyDown (KeyCode.Space) && !doubleJump && !grounded)
+        {
+            Jump();
+            doubleJump = true;
+        }
+
+        // Non-Stick Player
+        moveVelocity = 0f;
+
+        // This code makes the character move side to side using A+D
         if (Input.GetKey(KeyCode.D)) {
             GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                MoveSpeed = MoveSpeed * (3/2);
-            }
+            moveVelocity = MoveSpeed;
         }
         if(Input.GetKey(KeyCode.A)) {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            moveVelocity = -MoveSpeed;
         }
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
     }
 
     public void Jump(){
