@@ -18,18 +18,18 @@ public class Score_Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Score < 0)
+        if (Score < 0) 
         {
             Score = 0;
-            ScoreText.text = " " + Score;
         }
+        ScoreText.text = " " + Score;
 	}
 
     public static void AddPoints (int pointsToAdd) {
         Score += pointsToAdd;
     }
 
-    public static void Reset () {
-        Score = 0;
-    }
+    //public static void Reset () {
+    //    Score = 0;
+    //}
 }
