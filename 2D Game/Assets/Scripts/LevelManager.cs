@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour {
         // Generate Death Particle
         Instantiate (DeathParticle, PC.transform.position, PC.transform.rotation);
         // Hide Player
-        PC.enabled = false;
+        // PC.enabled = false;
         PC.GetComponent<Renderer>().enabled = false;
         // Gravity Reset
         GravityStore = PC.GetComponent<Rigidbody2D>().gravityScale;
@@ -53,7 +53,10 @@ public class LevelManager : MonoBehaviour {
         // Match Players transform position
         PC.transform.position = CurrentCheckpoint.transform.position;
         // Show Player
-
+        // PC.enabled = true;
+        PC.GetComponent<Renderer>().enabled = true;
+        // Spawn Player
+        Instantiate (RespawnParticle, CurrentCheckpoint.transform.position, CurrentCheckpoint.transform.rotation);
     }
 	// Update is called once per frame
 	void Update () {
