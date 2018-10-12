@@ -63,6 +63,11 @@ public class Char_Move : MonoBehaviour
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
+
+        // Player Flip
+        if (GetComponent<Rigidbody2D>().velocity.x != 0) {
+            transform.localScale = new Vector3(5f * Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x), 5f, 1f);
+        }
     }
 
     public void Jump(){

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-
     public float Speed;
+    public float HSpeed;
+    public float VSpeed;
 
     public Rigidbody2D Player;
 
@@ -18,15 +19,17 @@ public class ProjectileScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(Speed, GetComponent<Rigidbody2D>().velocity.y);
-        if (Player.transform.localScale.x < 0)
-            Speed = -Speed;
+        HSpeed = Mathf.Atan(Input.mousePosition.x - transform.localPosition.x);
+        VSpeed = Mathf.Atan(Input.mousePosition.y - transform.localPosition.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed, GetComponent<Rigidbody2D>().velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, VSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -37,6 +40,6 @@ public class ProjectileScript : MonoBehaviour
         }
 
         Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
+
     }
 }
