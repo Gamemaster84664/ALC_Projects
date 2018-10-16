@@ -19,17 +19,16 @@ public class ProjectileScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(mouse.y - transform.position.y, mouse.x - transform.position.x) * Mathf.Rad2Deg);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        HSpeed = Mathf.Atan(Input.mousePosition.x - transform.localPosition.x);
-        VSpeed = Mathf.Atan(Input.mousePosition.y - transform.localPosition.y);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed, GetComponent<Rigidbody2D>().velocity.y);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, VSpeed);
+        Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2.Lerp(transform.position, mouse, Speed);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
