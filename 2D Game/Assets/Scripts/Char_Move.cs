@@ -7,7 +7,10 @@ public class Char_Move : MonoBehaviour
     // Player Movement Variables
     public int MoveSpeed;
     public float JumpHeight;
-    private bool doubleJump;
+    public float Fuel;
+    public float MaxFuel;
+    public float FuelUsage;
+    public float packStrength;
 
     // Player Grounded Variables
     public Transform GroundCheck;
@@ -21,10 +24,11 @@ public class Char_Move : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        Fuel = MaxFuel;
     }
 
-    void FixedUpdate () {
+    void FixedUpdate()
+    {
         grounded = Physics2D.OverlapCircle(GroundCheck.position, GroundCheckRadius, WhatIsGround);
     }
 
@@ -37,27 +41,25 @@ public class Char_Move : MonoBehaviour
             Jump();
         }
 
+        Jet();
+
         // Double jump code
         if (grounded)
         {
-            doubleJump = false;
-        }
-
-        if (Input.GetKeyDown (KeyCode.Space) && !doubleJump && !grounded)
-        {
-            Jump();
-            doubleJump = true;
+            Fuel += FuelUsage * 2;
         }
 
         // Non-Stick Player
         moveVelocity = 0f;
 
         // This code makes the character move side to side using A+D
-        if (Input.GetKey(KeyCode.D)) {
+        if (Input.GetKey(KeyCode.D))
+        {
             GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             moveVelocity = MoveSpeed;
         }
-        if(Input.GetKey(KeyCode.A)) {
+        if (Input.GetKey(KeyCode.A))
+        {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             moveVelocity = -MoveSpeed;
         }
@@ -65,12 +67,33 @@ public class Char_Move : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
 
         // Player Flip
-        if (GetComponent<Rigidbody2D>().velocity.x != 0) {
+        if (GetComponent<Rigidbody2D>().velocity.x != 0)
+        {
             transform.localScale = new Vector3(5f * Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x), 5f, 1f);
         }
     }
 
-    public void Jump(){
+    public void Jump()
+    {
         GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, JumpHeight);
+    }
+
+    public void Jet()
+    {
+        if (Fuel > MaxFuel)
+        {
+            Fuel = MaxFuel;
+        }
+        if (!grounded)
+        {
+            if (Fuel > 0)
+            {
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y + packStrength);
+                    Fuel -= FuelUsage;
+                }
+            }
+        }
     }
 }

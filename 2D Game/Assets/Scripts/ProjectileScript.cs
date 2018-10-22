@@ -32,7 +32,7 @@ public class ProjectileScript : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Enimoo") {
+        if (other.tag == "Enemy") {
             Instantiate(EnemyDeath, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
             Score_Manager.AddPoints(PointsForKill);

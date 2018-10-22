@@ -9,7 +9,7 @@ public class PlayerShoot : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.W)) {
+        if (Input.GetKeyDown(KeyCode.W)) {
             Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
         }
 	}
