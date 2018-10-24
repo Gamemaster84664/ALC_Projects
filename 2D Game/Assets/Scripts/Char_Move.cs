@@ -21,6 +21,9 @@ public class Char_Move : MonoBehaviour
     // Non-Stick Player
     private float moveVelocity;
 
+    // Jet Fire
+    public GameObject JetFire;
+
     // Use this for initialization
     void Start()
     {
@@ -65,12 +68,6 @@ public class Char_Move : MonoBehaviour
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
-
-        // Player Flip
-        if (GetComponent<Rigidbody2D>().velocity.x != 0)
-        {
-            transform.localScale = new Vector3(5f * Mathf.Sign(GetComponent<Rigidbody2D>().velocity.x), 5f, 1f);
-        }
     }
 
     public void Jump()
@@ -91,6 +88,7 @@ public class Char_Move : MonoBehaviour
                 if (Input.GetKey(KeyCode.Space))
                 {
                     GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y + packStrength);
+                    Instantiate(JetFire);
                     Fuel -= FuelUsage;
                 }
             }

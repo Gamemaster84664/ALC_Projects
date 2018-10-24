@@ -7,6 +7,7 @@ public class ProjectileScript : MonoBehaviour
     public float Speed;
     public float HSpeed;
     public float VSpeed;
+    public float Dir;
 
     public Rigidbody2D Player;
 
@@ -20,15 +21,15 @@ public class ProjectileScript : MonoBehaviour
     void Start()
     {
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.localRotation = Quaternion.Euler(0f, 0f, Mathf.Atan2(mouse.y - transform.position.y, mouse.x - transform.position.x) * Mathf.Rad2Deg);
-
+        Dir = Mathf.Atan2(mouse.y - transform.position.y, mouse.x - transform.position.x);
+        HSpeed = Speed * Mathf.Cos(Dir);
+        VSpeed = Speed * Mathf.Sin(Dir);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2.Lerp(transform.position, mouse, Speed);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed,VSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
