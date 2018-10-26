@@ -14,6 +14,7 @@ public class Char_Move : MonoBehaviour
 
     // Player Grounded Variables
     public Transform GroundCheck;
+    public Transform JetPosition;
     public float GroundCheckRadius;
     public LayerMask WhatIsGround;
     private bool grounded;
@@ -44,13 +45,15 @@ public class Char_Move : MonoBehaviour
             Jump();
         }
 
-        Jet();
-
-        // Double jump code
         if (grounded)
         {
             Fuel += FuelUsage * 2;
         }
+
+        Jet();
+
+        // Double jump code
+
 
         // Non-Stick Player
         moveVelocity = 0f;

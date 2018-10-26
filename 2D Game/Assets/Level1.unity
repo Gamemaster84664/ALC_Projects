@@ -505,6 +505,11 @@ Prefab:
       propertyPath: Speed
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114569824746073112, guid: 51472dee5c5e84308a2deada53b6796d,
+        type: 2}
+      propertyPath: Gun
+      value: 
+      objectReference: {fileID: 1002470542}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51472dee5c5e84308a2deada53b6796d, type: 2}
   m_IsPrefabParent: 0
@@ -517,6 +522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 411635534}
   - component: {fileID: 411635533}
+  - component: {fileID: 411635535}
   - component: {fileID: 411635532}
   m_Layer: 0
   m_Name: JetP
@@ -1205,14 +1211,14 @@ ParticleSystem:
     serializedVersion: 5
     enabled: 1
     type: 4
-    angle: 25
+    angle: 10.612493
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Scale: {x: 2, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -1477,8 +1483,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.5190157
-          value: 0
+          time: 0.57941
+          value: 0.16216278
           inSlope: 5.6465883
           outSlope: 5.6465883
           tangentMode: 0
@@ -1807,8 +1813,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 8867
-        atime2: 0
+        atime1: 13300
+        atime2: 65535
         atime3: 0
         atime4: 0
         atime5: 0
@@ -5125,6 +5131,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: -270, y: -90, z: 89.99999}
+--- !u!114 &411635535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411635531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7154acd3d40744b5dbcc15026cc1ae7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 2002099752}
+  OnStart: 0
 --- !u!1 &475125382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5700,6 +5719,7 @@ MonoBehaviour:
   PlayerPosition: {fileID: 1191072275}
   XOffset: 0
   YOffset: 0
+  Dir: 0
 --- !u!212 &1002470544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5735,12 +5755,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec51d5540e6594f7c8119b38fd91f4fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bcc666dfc2f64456b4a37bf578973f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.32, y: 1.52}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -5753,8 +5773,9 @@ Transform:
   m_GameObject: {fileID: 1002470542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.69, y: -1.47, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
-  m_Children: []
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1265987618}
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6106,7 +6127,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   - {fileID: 240026974}
-  - {fileID: 1265987618}
+  - {fileID: 2002099752}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6124,10 +6145,11 @@ MonoBehaviour:
   MoveSpeed: 6
   JumpHeight: 7
   Fuel: 0
-  MaxFuel: 120
+  MaxFuel: 50
   FuelUsage: 1
   packStrength: 0.3
   GroundCheck: {fileID: 240026974}
+  JetPosition: {fileID: 2002099752}
   GroundCheckRadius: 0.25
   WhatIsGround:
     serializedVersion: 2
@@ -6184,12 +6206,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265987617}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.001, y: -0.004, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.578, y: 0.121, z: 0.446989}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
-  m_Father: {fileID: 1191072275}
-  m_RootOrder: 2
+  m_Father: {fileID: 1002470545}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1292569757
 GameObject:
@@ -11693,6 +11715,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2002099751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2002099752}
+  m_Layer: 0
+  m_Name: JetPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2002099752
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2002099751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.006, y: -0.073, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1191072275}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049614945
 GameObject:
