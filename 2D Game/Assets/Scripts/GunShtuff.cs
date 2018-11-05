@@ -14,9 +14,10 @@ public class GunShtuff : MonoBehaviour {
 	void Start () {
         
 	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
 
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Dir = Mathf.Atan2(mouse.y - transform.position.y, mouse.x - transform.position.x) * Mathf.Rad2Deg;
@@ -30,6 +31,5 @@ public class GunShtuff : MonoBehaviour {
         }
         GetComponent<Rigidbody2D>().rotation = Dir;
 
-        GetComponent<Rigidbody2D>().position = new Vector2(PlayerPosition.position.x + XOffset, PlayerPosition.position.y + YOffset);
-	}
+    }
 }

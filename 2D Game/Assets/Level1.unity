@@ -423,11 +423,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4673019258259868, guid: 51472dee5c5e84308a2deada53b6796d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2.92
+      value: -2.914
       objectReference: {fileID: 0}
     - target: {fileID: 4673019258259868, guid: 51472dee5c5e84308a2deada53b6796d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.45
+      value: -1.439
       objectReference: {fileID: 0}
     - target: {fileID: 4673019258259868, guid: 51472dee5c5e84308a2deada53b6796d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -470,11 +470,11 @@ Prefab:
       objectReference: {fileID: 2080166886}
     - target: {fileID: 4673019258259868, guid: 51472dee5c5e84308a2deada53b6796d, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.95789725
+      value: 0.42501903
       objectReference: {fileID: 0}
     - target: {fileID: 4673019258259868, guid: 51472dee5c5e84308a2deada53b6796d, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.74835646
+      value: 0.41474873
       objectReference: {fileID: 0}
     - target: {fileID: 58866040715836994, guid: 51472dee5c5e84308a2deada53b6796d,
         type: 2}
@@ -773,7 +773,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.990566, g: 0.48583078, b: 0, a: 1}
+      maxColor: {r: 0.9150943, g: 0.51815253, b: 0.09927912, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5712,8 +5712,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1002470545}
   - component: {fileID: 1002470544}
-  - component: {fileID: 1002470543}
   - component: {fileID: 1002470546}
+  - component: {fileID: 1002470543}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -5732,7 +5732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bc816ebb19b04ae2a81190bff3edc40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerPosition: {fileID: 1191072275}
+  PlayerPosition: {fileID: 0}
   XOffset: 0
   YOffset: 0
   Dir: 0
@@ -5770,7 +5770,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5bcc666dfc2f64456b4a37bf578973f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6120,7 +6120,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0.39788818, b: 1, a: 1}
   m_FlipX: 0
@@ -6164,7 +6164,8 @@ MonoBehaviour:
   packStrength: 0.3
   GroundCheck: {fileID: 240026974}
   JetPosition: {fileID: 0}
-  GroundCheckRadius: 1
+  GunPos: {fileID: 1002470545}
+  GroundCheckRadius: 0.5
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 256

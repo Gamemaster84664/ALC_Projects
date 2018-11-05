@@ -16,7 +16,7 @@ public class RagDollBox : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.tag == "box")
+        if (other.tag == "Box")
         {
             other.GetComponent<Rigidbody2D>().velocity += GetComponent<Rigidbody2D>().velocity;
         }

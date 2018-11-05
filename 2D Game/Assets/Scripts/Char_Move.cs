@@ -15,6 +15,7 @@ public class Char_Move : MonoBehaviour
     // Player Grounded Variables
     public Transform GroundCheck;
     public Transform JetPosition;
+    public Transform GunPos;
     public float GroundCheckRadius;
     public LayerMask WhatIsGround;
     private bool grounded;
@@ -49,6 +50,9 @@ public class Char_Move : MonoBehaviour
         {
             Fuel += FuelUsage * 2;
         }
+
+        //Gun moves it's butt over here
+        GunPos.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
 
         Jet();
 
