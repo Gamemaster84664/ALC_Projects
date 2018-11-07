@@ -5,6 +5,7 @@ using UnityEngine;
 public class PartScript : MonoBehaviour {
 
     public Transform Target;
+    public float PartOffset;
     public bool OnStart;
 
 	// Use this for initialization
@@ -19,7 +20,7 @@ public class PartScript : MonoBehaviour {
 	void Update () {
         if (!OnStart)
         {
-            transform.position = Target.position;
+            transform.position = new Vector3(Target.position.x, Target.position.y - PartOffset, Target.position.z);
         }
 	}
 }

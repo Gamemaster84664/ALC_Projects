@@ -17,6 +17,7 @@ public class Char_Move : MonoBehaviour
     public Transform JetPosition;
     public Transform GunPos;
     public float GroundCheckRadius;
+    public float JetOffset;
     public LayerMask WhatIsGround;
     private bool grounded;
 
@@ -53,6 +54,8 @@ public class Char_Move : MonoBehaviour
 
         //Gun moves it's butt over here
         GunPos.position = new Vector3(transform.position.x,transform.position.y,transform.position.z);
+
+        JetPosition.position = new Vector3(transform.position.x - 15, transform.position.y - 10, transform.position.z);
 
         Jet();
 
@@ -95,6 +98,7 @@ public class Char_Move : MonoBehaviour
                 if (Input.GetKey(KeyCode.Space))
                 {
                     GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, GetComponent<Rigidbody2D>().velocity.y + packStrength);
+                    JetPosition.position = new Vector3(transform.position.x, transform.position.y - JetOffset, transform.position.z);
                     Instantiate(JetFire);
                     Fuel -= FuelUsage;
                 }
