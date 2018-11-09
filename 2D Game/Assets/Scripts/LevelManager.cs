@@ -43,6 +43,7 @@ public class LevelManager : MonoBehaviour {
         PC.GetComponent<Rigidbody2D>().gravityScale = 0f;
         PC.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         // Point Penalty
+        PointPenaltyOnDeath = 10;
         Score_Manager.AddPoints(-PointPenaltyOnDeath);
         // Debug Message
         Debug.Log("Player Respawn");

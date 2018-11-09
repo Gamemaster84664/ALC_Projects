@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
@@ -22,8 +21,10 @@ public class ProjectileScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        System.Random randy = new System.Random();
+
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Dir = Gun.GetComponent<GunShtuff>().Dir * Mathf.Deg2Rad;
+        Dir = ((Gun.GetComponent<GunShtuff>().Dir + randy.Next(-10, 10)) * Mathf.Deg2Rad);
         HSpeed = Speed * Mathf.Cos(Dir);
         VSpeed = Speed * Mathf.Sin(Dir);
         destime = LifeTime;
