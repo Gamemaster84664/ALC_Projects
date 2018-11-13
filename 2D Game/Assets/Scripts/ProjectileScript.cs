@@ -7,10 +7,9 @@ public class ProjectileScript : MonoBehaviour
     public float HSpeed;
     public float VSpeed;
     public float Dir;
-    public float LifeTime;
-    private float destime;
+    public float TimeOut;
 
-    public Rigidbody2D Player;
+    public GameObject PC;
 
     public GameObject EnemyDeath;
     public GameObject Gun;
@@ -21,25 +20,28 @@ public class ProjectileScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        System.Random randy = new System.Random();
+        PC = GameObject.Find("PC");
+
+        EnemyDeath = Resources.Load("Prefabs/DeathP") as GameObject;
+
+        ProjectileParticle = Resources.Load("Prefabs/RespawnP") as GameObject;
 
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Dir = ((Gun.GetComponent<GunShtuff>().Dir + randy.Next(-10, 10)) * Mathf.Deg2Rad);
+
         HSpeed = Speed * Mathf.Cos(Dir);
         VSpeed = Speed * Mathf.Sin(Dir);
-        destime = LifeTime;
+
+        // Destroys projectile after X seconds
+        Destroy(gameObject, TimeOut);
     }
 
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed,VSpeed);
+        System.Random randy = new System.Random();
+        Dir = ((Gun.GetComponent<GunShtuff>().Dir + randy.Next(-10, 10)) * Mathf.Deg2Rad);
 
-        destime -= 1; 
-        if (destime <= 0)
-        {
-            
-        }
+        GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed,VSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -49,7 +51,13 @@ public class ProjectileScript : MonoBehaviour
             Score_Manager.AddPoints(PointsForKill);
         }
 
-        Instantiate(ProjectileParticle, transform.position, transform.rotation);
-
+        //Instantiate(ProjectileParticle, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
+
+	private void OnCollisionEnter2D(Collision2D other)
+	{
+        Instantiate(ProjectileParticle, transform.position, transform.rotation);
+        Destroy(gameObject);
+	}
 }

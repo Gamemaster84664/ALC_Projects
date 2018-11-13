@@ -8,6 +8,12 @@ public class LevelManager : MonoBehaviour {
 
     public Rigidbody2D PC;
 
+    public GameObject PC2;
+
+    public GameObject Gun;
+
+    public GameObject Rocket;
+
     // Particles
     public GameObject DeathParticle;
 
@@ -22,10 +28,13 @@ public class LevelManager : MonoBehaviour {
     // Store Gravity Value
     private float GravityStore;
 
-
 	// Use this for initialization
 	void Start () {
         // PC = FindObjectOfType<Rigidbody2D>();
+        PC = GameObject.Find("PC").GetComponent<Rigidbody2D>();
+        PC2 = GameObject.Find("PC");
+        Gun = GameObject.Find("Gun");
+        Rocket = GameObject.Find("FixedRocketman");
 	}
 	
     public void RespawnPlayer() {
@@ -37,6 +46,9 @@ public class LevelManager : MonoBehaviour {
         Instantiate (DeathParticle, PC.transform.position, PC.transform.rotation);
         // Hide Player
         // PC.enabled = false;
+        PC2.SetActive(false);
+        Gun.SetActive(false);
+        Rocket.SetActive(false);
         PC.GetComponent<Renderer>().enabled = false;
         // Gravity Reset
         GravityStore = PC.GetComponent<Rigidbody2D>().gravityScale;
@@ -55,6 +67,9 @@ public class LevelManager : MonoBehaviour {
         PC.transform.position = CurrentCheckpoint.transform.position;
         // Show Player
         // PC.enabled = true;
+        PC2.SetActive(true);
+        Gun.SetActive(true);
+        Rocket.SetActive(true);
         PC.GetComponent<Renderer>().enabled = true;
         // Spawn Player
         Instantiate (RespawnParticle, CurrentCheckpoint.transform.position, CurrentCheckpoint.transform.rotation);
