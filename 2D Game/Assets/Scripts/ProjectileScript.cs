@@ -55,7 +55,7 @@ public class ProjectileScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-	private void OnCollisionEnter2D(Collision2D other)
+	void OnCollisionEnter2D(Collision2D other)
 	{
         Instantiate(ProjectileParticle, transform.position, transform.rotation);
         Destroy(gameObject);
