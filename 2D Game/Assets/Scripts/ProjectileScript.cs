@@ -10,6 +10,7 @@ public class ProjectileScript : MonoBehaviour
     public float TimeOut;
 
     public GameObject PC;
+    public GameObject FirePoint;
 
     public GameObject EnemyDeath;
     public GameObject Gun;
@@ -21,6 +22,8 @@ public class ProjectileScript : MonoBehaviour
     void Start()
     {
         PC = GameObject.Find("PC");
+
+        FirePoint = GameObject.Find("FirePoint");
 
         EnemyDeath = Resources.Load("Prefabs/DeathP") as GameObject;
 
@@ -52,7 +55,7 @@ public class ProjectileScript : MonoBehaviour
         }
 
         //Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 	void OnCollisionEnter2D(Collision2D other)
