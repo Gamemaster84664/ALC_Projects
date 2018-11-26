@@ -31,6 +31,8 @@ public class Char_Move : MonoBehaviour
     void Start()
     {
         Fuel = MaxFuel;
+
+        JetFire = Resources.Load("Prefabs/JetP") as GameObject;
     }
 
     void FixedUpdate()

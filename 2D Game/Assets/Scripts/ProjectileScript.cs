@@ -27,7 +27,7 @@ public class ProjectileScript : MonoBehaviour
 
         EnemyDeath = Resources.Load("Prefabs/DeathP") as GameObject;
 
-        ProjectileParticle = Resources.Load("Prefabs/RespawnP") as GameObject;
+        ProjectileParticle = Resources.Load("Prefabs/ShootP") as GameObject;
 
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
@@ -54,8 +54,8 @@ public class ProjectileScript : MonoBehaviour
             Score_Manager.AddPoints(PointsForKill);
         }
 
-        //Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        //Destroy(gameObject);
+        Instantiate(ProjectileParticle, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 
 	void OnCollisionEnter2D(Collision2D other)
