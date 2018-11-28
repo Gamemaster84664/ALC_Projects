@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PartScript : MonoBehaviour {
 
-    public GameObject Target;
+    private Transform Target;
     public float PartOffset;
     public bool OnStart;
 
 	// Use this for initialization
 	void Start () {
-        Target = Resources.Load("Prefabs/PC") as GameObject;
-        transform.position = new Vector3(Target;
+        Target = Resources.Load("Prefabs/PC") as Transform;
+        transform.position = Target.position;
 	}
 
     // Update is called once per frame
