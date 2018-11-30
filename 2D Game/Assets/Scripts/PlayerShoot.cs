@@ -16,10 +16,10 @@ public class PlayerShoot : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKeyDown(KeyCode.W)) {
-            for (int i = rounds; i > 0; i -= 1)
-            {
-                Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
-            }
+            //for (int i = rounds; i > 0; i -= 1)
+            //{
+            Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
+            //}
         }
 	}
 }

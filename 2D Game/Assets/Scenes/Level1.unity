@@ -588,6 +588,11 @@ Prefab:
       value: 
       objectReference: {fileID: 1774319694460364, guid: 5ef82d3d945fa4a86bae81ce0745abec,
         type: 2}
+    - target: {fileID: 114569824746073112, guid: 51472dee5c5e84308a2deada53b6796d,
+        type: 2}
+      propertyPath: ProjectileScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51472dee5c5e84308a2deada53b6796d, type: 2}
   m_IsPrefabParent: 0
@@ -1363,7 +1368,7 @@ Prefab:
         type: 2}
       propertyPath: Target
       value: 
-      objectReference: {fileID: 1191072275}
+      objectReference: {fileID: 1191072271}
     - target: {fileID: 4512529094958648, guid: 5a142411b87b54a4887e75050c4b3c37, type: 2}
       propertyPath: m_LocalScale.x
       value: 0.50000155
@@ -1380,6 +1385,11 @@ Prefab:
         type: 2}
       propertyPath: PartOffset
       value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 198804520449983428, guid: 5a142411b87b54a4887e75050c4b3c37,
+        type: 2}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a142411b87b54a4887e75050c4b3c37, type: 2}
@@ -1507,6 +1517,7 @@ MonoBehaviour:
   XOffset: 0
   YOffset: 0
   Dir: 0
+  Scale: 0
 --- !u!212 &1002470544
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1973,7 +1984,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1265987617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.14, y: 0.121, z: 0.446989}
+  m_LocalPosition: {x: 0.65, y: 0.121, z: 0.446989}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1002470545}

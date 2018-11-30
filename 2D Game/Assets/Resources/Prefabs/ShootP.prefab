@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4468331474044102}
   - component: {fileID: 198348484664363730}
   - component: {fileID: 199462843192295590}
+  - component: {fileID: 114390062876174818}
   m_Layer: 0
   m_Name: ShootP
   m_TagString: Untagged
@@ -41,6 +42,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &114390062876174818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1166904020114284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b041e1158e1fb470184a8c4ee2cbc606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeOut: 3
 --- !u!198 &198348484664363730
 ParticleSystem:
   m_ObjectHideFlags: 1

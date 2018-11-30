@@ -11,7 +11,6 @@ public class ProjectileScript : MonoBehaviour
 
     public GameObject PC;
     public GameObject FirePoint;
-
     public GameObject EnemyDeath;
     public GameObject Gun;
     public GameObject ProjectileParticle;
@@ -29,22 +28,26 @@ public class ProjectileScript : MonoBehaviour
 
         ProjectileParticle = Resources.Load("Prefabs/ShootP") as GameObject;
 
+        Gun = GameObject.Find("Gun");
+
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         HSpeed = Speed * Mathf.Cos(Dir);
         VSpeed = Speed * Mathf.Sin(Dir);
 
         // Destroys projectile after X seconds
-        Destroy(gameObject, TimeOut);
+
     }
 
     // Update is called once per frame
     void Update()
     {
         System.Random randy = new System.Random();
-        Dir = ((Gun.GetComponent<GunShtuff>().Dir + randy.Next(-10, 10)) * Mathf.Deg2Rad);
+        Dir = (Gun.GetComponent<GunShtuff>().Dir + randy.Next(-10, 10)) * Mathf.Deg2Rad;
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed,VSpeed);
+
+        //Destroy(gameObject, TimeOut);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -55,12 +58,12 @@ public class ProjectileScript : MonoBehaviour
         }
 
         Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
         Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
+        //Destroy(gameObject);
 	}
 }

@@ -35,6 +35,8 @@ public class LevelManager : MonoBehaviour {
         PC2 = GameObject.Find("PC");
         Gun = GameObject.Find("Gun");
         Rocket = GameObject.Find("FixedRocketman");
+        DeathParticle = Resources.Load("Prefabs/DeathP") as GameObject;
+        RespawnParticle = Resources.Load("Prefabs/RespawnP") as GameObject;
 	}
 	
     public void RespawnPlayer() {

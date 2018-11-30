@@ -10,7 +10,7 @@ public class DestroyFinishedParticle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         thisParticleSystem = GetComponent<ParticleSystem>();
-        //Destroy(gameObject, TimeOut);
+        Destroy(gameObject, TimeOut);
 	}
 	
 	// Update is called once per frame
@@ -19,11 +19,11 @@ public class DestroyFinishedParticle : MonoBehaviour {
         {
             return;
         }
-        //Destroy(gameObject);
+        Destroy(gameObject);
 	}
 
 	void OnBecameInvisible()
 	{
-        //Destroy(gameObject);
+        Destroy(gameObject);
 	}
 }
