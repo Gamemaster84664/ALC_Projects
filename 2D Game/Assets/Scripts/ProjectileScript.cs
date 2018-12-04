@@ -24,13 +24,12 @@ public class ProjectileScript : MonoBehaviour
 
         FirePoint = GameObject.Find("FirePoint");
 
-        EnemyDeath = Resources.Load("Prefabs/DeathP") as GameObject;
-
-        ProjectileParticle = Resources.Load("Prefabs/ShootP") as GameObject;
-
         Gun = GameObject.Find("Gun");
 
         Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        System.Random randy = new System.Random();
+        Dir = (Gun.GetComponent<GunShtuff>().Dir + randy.Next(-5, 5)) * Mathf.Deg2Rad;
 
         HSpeed = Speed * Mathf.Cos(Dir);
         VSpeed = Speed * Mathf.Sin(Dir);
@@ -42,8 +41,7 @@ public class ProjectileScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        System.Random randy = new System.Random();
-        Dir = (Gun.GetComponent<GunShtuff>().Dir + randy.Next(-10, 10)) * Mathf.Deg2Rad;
+
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed,VSpeed);
 

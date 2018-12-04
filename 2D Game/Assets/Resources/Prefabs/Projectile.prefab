@@ -92,9 +92,14 @@ MonoBehaviour:
   Speed: 10
   HSpeed: 0
   VSpeed: 0
-  Player: {fileID: 0}
-  EnemyDeath: {fileID: 0}
-  ProjectileParticle: {fileID: 0}
+  Dir: 0
+  TimeOut: 0
+  PC: {fileID: 1774319694460364, guid: 5ef82d3d945fa4a86bae81ce0745abec, type: 2}
+  FirePoint: {fileID: 0}
+  EnemyDeath: {fileID: 1354217219353340, guid: bdbe4797a26fa4c9b949447e6bb42608, type: 2}
+  Gun: {fileID: 0}
+  ProjectileParticle: {fileID: 1166904020114284, guid: 7253c4ae17d46408e828f4fe7139ee6c,
+    type: 2}
   PointsForKill: 2
 --- !u!212 &212705469347702592
 SpriteRenderer:
