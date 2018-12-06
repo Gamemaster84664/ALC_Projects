@@ -834,8 +834,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0.31117582, b: 1, a: 1}
+  m_Sprite: {fileID: 21300012, guid: c00e3300533784282a4bb71e2d2496ce, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -852,7 +852,7 @@ Transform:
   m_GameObject: {fileID: 1334113175}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.04, y: -2.1, z: 3.547489}
-  m_LocalScale: {x: 29.5769, y: 29.57688, z: 29.57688}
+  m_LocalScale: {x: 18, y: 18, z: 29.57688}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1055,7 +1055,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 60b13430724384a47a15afb185c37c4e, type: 3}
-    m_FontSize: 40
+    m_FontSize: 37
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -1066,7 +1066,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Gun Square
+  m_Text: Rambo Square
 --- !u!222 &1991543773
 CanvasRenderer:
   m_ObjectHideFlags: 0

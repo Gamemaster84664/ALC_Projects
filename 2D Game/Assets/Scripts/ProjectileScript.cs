@@ -35,17 +35,13 @@ public class ProjectileScript : MonoBehaviour
         VSpeed = Speed * Mathf.Sin(Dir);
 
         // Destroys projectile after X seconds
-
+        //Destroy(gameObject, TimeOut);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed,VSpeed);
-
-        //Destroy(gameObject, TimeOut);
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -56,12 +52,12 @@ public class ProjectileScript : MonoBehaviour
         }
 
         Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        //Destroy(gameObject);
+        Destroy(gameObject);
     }
 
 	void OnCollisionEnter2D(Collision2D other)
 	{
         Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        //Destroy(gameObject);
+        Destroy(gameObject);
 	}
 }
