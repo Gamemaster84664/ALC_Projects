@@ -17,6 +17,7 @@ public class FuelManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Fuel = Player.GetComponent<Char_Move>().Fuel;
-        FuelText.text = " " + Fuel;
+        transform.localScale = new Vector3(4000f,25000*Fuel/50,1f);
+
 	}
 }
