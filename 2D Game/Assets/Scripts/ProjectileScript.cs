@@ -26,10 +26,8 @@ public class ProjectileScript : MonoBehaviour
 
         Gun = GameObject.Find("Gun");
 
-        Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
         System.Random randy = new System.Random();
-        Dir = (Gun.GetComponent<GunShtuff>().Dir + randy.Next(-2, 2)) * Mathf.Deg2Rad;
+        Dir = (Gun.GetComponent<GunShtuff>().Dir + randy.Next(-5, 5)) * Mathf.Deg2Rad;
 
         HSpeed = Speed * Mathf.Cos(Dir);
         VSpeed = Speed * Mathf.Sin(Dir);
@@ -50,7 +48,10 @@ public class ProjectileScript : MonoBehaviour
             Destroy(other.gameObject);
             Score_Manager.AddPoints(PointsForKill);
         }
-        if (other.tag != "Projectile") {
+        else if (other.tag == "Projectile") {
+            return;
+        }
+        else {
             Instantiate(ProjectileParticle, transform.position, transform.rotation);
             Destroy(gameObject);
         }

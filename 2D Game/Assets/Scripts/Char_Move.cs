@@ -27,9 +27,14 @@ public class Char_Move : MonoBehaviour
     // Jet Fire
     public GameObject JetFire;
 
+    public Animator animator;
+
     // Use this for initialization
     void Start()
     {
+        // Animation reset
+        animator.SetBool("isMoving", false);
+
         Fuel = MaxFuel;
 
         JetFire = Resources.Load("Prefabs/JetP") as GameObject;
@@ -72,11 +77,20 @@ public class Char_Move : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             moveVelocity = MoveSpeed;
+            animator.SetBool("isMoving", true);
         }
+        else if (Input.GetKeyUp(KeyCode.D)){
+            animator.SetBool("isMoving", false);
+        }
+
         if (Input.GetKey(KeyCode.A))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-MoveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             moveVelocity = -MoveSpeed;
+            animator.SetBool("isMoving", true);
+        }
+        else if(Input.GetKeyUp(KeyCode.A)){
+            animator.SetBool("isMoving", false);
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(moveVelocity, GetComponent<Rigidbody2D>().velocity.y);
@@ -103,6 +117,10 @@ public class Char_Move : MonoBehaviour
                     JetPosition.position = new Vector3(transform.position.x, transform.position.y - JetOffset, transform.position.z);
                     Instantiate(JetFire);
                     Fuel -= FuelUsage;
+                    animator.SetBool("isMoving", true);
+                }
+                else if (Input.GetKeyUp(KeyCode.Space)){
+                    animator.SetBool("isMoving", false);
                 }
             }
         }

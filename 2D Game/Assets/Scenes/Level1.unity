@@ -2279,6 +2279,11 @@ Prefab:
       propertyPath: m_Size.y
       value: 0.19
       objectReference: {fileID: 0}
+    - target: {fileID: 114344321554399382, guid: 5ef82d3d945fa4a86bae81ce0745abec,
+        type: 2}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1191072273}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5ef82d3d945fa4a86bae81ce0745abec, type: 2}
   m_IsPrefabParent: 0
