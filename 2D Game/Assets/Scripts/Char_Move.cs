@@ -119,7 +119,7 @@ public class Char_Move : MonoBehaviour
                     Fuel -= FuelUsage;
                     animator.SetBool("isMoving", true);
                 }
-                else if (Input.GetKeyUp(KeyCode.Space)){
+                else {
                     animator.SetBool("isMoving", false);
                 }
             }
