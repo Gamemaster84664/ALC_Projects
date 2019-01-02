@@ -23,15 +23,14 @@ public class ProjectileScript : MonoBehaviour
     {
         PC = GameObject.Find("PC");
 
-        FirePoint = GameObject.Find("FirePoint");
+        FirePoint = GameObject.Find("Gun").GetComponent<GunShtuff>().FirePoint;
 
         Gun = GameObject.Find("Gun");
 
         EnemyDeath = Resources.Load("Prefabs/DeathP") as GameObject;
         ProjectileParticle = Resources.Load("Prefabs/ShootP") as GameObject;
                                       
-        System.Random randy = new System.Random();
-        Dir = (Gun.GetComponent<GunShtuff>().Dir + randy.Next(-3, 3)) * Mathf.Deg2Rad;
+        Dir = (Gun.GetComponent<GunShtuff>().Dir + PC.GetComponent<PlayerShoot>().veer) * Mathf.Deg2Rad;
 
         Speed = 25;
 
@@ -57,12 +56,10 @@ public class ProjectileScript : MonoBehaviour
             Instantiate(Coin, other.transform.position, other.transform.rotation);
             Score_Manager.AddPoints(PointsForKill);
         }
-        Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
+        if (other.name != "PC" && other.name != "Projectile")
+        {
+            Instantiate(ProjectileParticle, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
     }
-	void OnCollisionEnter2D(Collision2D other)
-	{
-        Instantiate(ProjectileParticle, transform.position, transform.rotation);
-        Destroy(gameObject);
-	}
 }
