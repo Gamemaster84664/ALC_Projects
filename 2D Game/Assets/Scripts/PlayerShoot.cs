@@ -1,14 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShoot : MonoBehaviour {
 
     public Transform FirePoint;
     public GameObject Projectile;
     public float veer;
-    public int rounds;
     public string state;
+    public bool Gun1True;
 
 	void Start()
 	{
@@ -24,6 +25,13 @@ public class PlayerShoot : MonoBehaviour {
 
         state = GameObject.Find("Gun").GetComponent<GunShtuff>().state;
 
+        if (state == "AR") {
+            Gun1True = true;
+        }
+        if (state == "SG") {
+            Gun1True = false;
+        }
+
         if (GameObject.Find("Gun").GetComponent<GunShtuff>().FirePoint != null)
         {
             FirePoint = GameObject.Find("Gun").GetComponent<GunShtuff>().FirePoint.transform;
@@ -32,22 +40,19 @@ public class PlayerShoot : MonoBehaviour {
             {
                 if (state == "AR")
                 {
-                    //for (int i = rounds; i > 0; i -= 1)
-                    //{
-                    randy.Next(-1, 1);
-                    Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
-                    //}
+                        veer = randy.Next(-1, 1);
+                        Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
                 }
                 if (state == "SG")
                 {
-                    veer = randy.Next(-40, 40);
                     Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
-                    veer = randy.Next(-40, 40);
+                    veer = randy.Next(-10, 10);
                     Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
-                    veer = randy.Next(-40, 40);
+                    veer = randy.Next(-10, 10);
                     Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
-                    veer = randy.Next(-40, 40);
+                    veer = randy.Next(-10, 10);
                     Instantiate(Projectile, FirePoint.position, FirePoint.rotation);
+                    veer = randy.Next(-10, 10);
                 }
             }
         }

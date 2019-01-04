@@ -56,7 +56,7 @@ public class ProjectileScript : MonoBehaviour
             Instantiate(Coin, other.transform.position, other.transform.rotation);
             Score_Manager.AddPoints(PointsForKill);
         }
-        if (other.name != "PC" && other.name != "Projectile")
+        if (other.tag != "PC" && other.tag != "Projectile")
         {
             Instantiate(ProjectileParticle, transform.position, transform.rotation);
             Destroy(gameObject);
