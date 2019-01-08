@@ -33,7 +33,6 @@ public class GunShtuff : MonoBehaviour {
     {
         if (Input.GetKey(KeyCode.Alpha1))
         {
-            
             state = "AR";
             spriteRenderer.sprite = assaultRifle;
             Scale = ARScale;

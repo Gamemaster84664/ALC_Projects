@@ -9,27 +9,29 @@ public class PlayerShoot : MonoBehaviour {
     public GameObject Projectile;
     public float veer;
     public string state;
-    public bool Gun1True;
+
+    Text GunText;
 
 	void Start()
 	{
         Projectile = Resources.Load("Prefabs/Projectile") as GameObject;
         FirePoint = null;
         veer = 0;
+        GunText = GetComponent<Text>();
 	}
 
 	// Update is called once per frame
 	void Update () {
-
+        
         System.Random randy = new System.Random();
 
         state = GameObject.Find("Gun").GetComponent<GunShtuff>().state;
 
         if (state == "AR") {
-            Gun1True = true;
+            GunText.text = "Assault Rifle";
         }
         if (state == "SG") {
-            Gun1True = false;
+            GunText.text = "Shotgun";
         }
 
         if (GameObject.Find("Gun").GetComponent<GunShtuff>().FirePoint != null)

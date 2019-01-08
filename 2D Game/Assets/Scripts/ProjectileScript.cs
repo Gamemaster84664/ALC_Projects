@@ -15,6 +15,7 @@ public class ProjectileScript : MonoBehaviour
     public GameObject Gun;
     public GameObject ProjectileParticle;
     public GameObject Coin;
+    public GameObject BulletSelf;
 
     public int PointsForKill;
 
@@ -29,6 +30,8 @@ public class ProjectileScript : MonoBehaviour
 
         EnemyDeath = Resources.Load("Prefabs/DeathP") as GameObject;
         ProjectileParticle = Resources.Load("Prefabs/ShootP") as GameObject;
+        Coin = Resources.Load("Prefabs/EnemyCoin") as GameObject;
+        BulletSelf = Resources.Load("Prefabs/Projectile") as GameObject;
                                       
         Dir = (Gun.GetComponent<GunShtuff>().Dir + PC.GetComponent<PlayerShoot>().veer) * Mathf.Deg2Rad;
 
@@ -49,17 +52,27 @@ public class ProjectileScript : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(HSpeed,VSpeed);
     }
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Enemy") {
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
             Instantiate(EnemyDeath, other.transform.position, other.transform.rotation);
             Destroy(other.gameObject);
             Instantiate(Coin, other.transform.position, other.transform.rotation);
             Score_Manager.AddPoints(PointsForKill);
         }
-        if (other.tag != "PC" && other.tag != "Projectile")
+    }
+    void OnCollisionEnter2D(Collision2D other){
         {
-            Instantiate(ProjectileParticle, transform.position, transform.rotation);
-            Destroy(gameObject);
+            if (other.gameObject == BulletSelf)
+            {
+                return;
+            }
+            else
+            {
+                Instantiate(ProjectileParticle, transform.position, transform.rotation);
+                Destroy(gameObject);
+            }
         }
     }
 }
